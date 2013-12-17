@@ -1,8 +1,12 @@
 <script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script>
-  var socket = io.connect('http://localhost');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
+  var socket = io.connect('localhost:80');
+  socket.on('messages_broadcast', function (message) {
+    console.log("got" + message);
+	$( "#messages" ).append( "<p>" + message.text + "</p>" );
   });
 </script>
+<body>
+<div id="messages"></div>
+</body>

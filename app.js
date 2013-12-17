@@ -2,6 +2,11 @@ var app = require('express')()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server);
 
+setInterval(function () {
+    console.log('timer event every 6 seconds');
+}, 6000);
+
+
 server.listen(80);
 
 app.get('/', function (req, res) {
@@ -9,8 +14,7 @@ app.get('/', function (req, res) {
 });
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+  socket.on('messages', function (data) {
+    socket.emit('messages_broadcast', data);
   });
 });
