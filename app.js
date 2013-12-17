@@ -1,13 +1,14 @@
 var app = require('express')()
   , server = require('http').createServer(app)
-  , io = require('socket.io').listen(server);
+  , io = require('socket.io').listen(server)
+  , port = process.env.PORT || 5000;
 
 setInterval(function () {
     console.log('timer event every 6 seconds');
 }, 6000);
 
 
-server.listen(80);
+server.listen(port);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
