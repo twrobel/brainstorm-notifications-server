@@ -3,10 +3,7 @@ var app = require('express')()
   , io = require('socket.io').listen(server)
   , port = process.env.PORT || 5000;
 
-setInterval(function () {
-    console.log('timer event every 6 seconds');
-}, 6000);
-
+console.log('listening on port ' + port);
 
 server.listen(port);
 
