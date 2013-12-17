@@ -1,10 +1,10 @@
 var app = require('express')()
-  , server = require('http').createServer(app)
+  , http = require('http')
   , io = require('socket.io').listen(server)
   , port = process.env.PORT || 5000;
 
+var server = http.createServer(app)
 console.log('listening on port ' + port);
-
 server.listen(port);
 
 app.get('/', function (req, res) {
