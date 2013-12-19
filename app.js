@@ -1,11 +1,12 @@
 var app = require('express')()
   , http = require('http')
-  , io = require('socket.io').listen(server)
-  , port = process.env.PORT || 5000;
+  , port = 80;
 
 var server = http.createServer(app)
 console.log('listening on port ' + port);
 server.listen(port);
+
+var io = require('socket.io').listen(server);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
@@ -13,6 +14,7 @@ app.get('/', function (req, res) {
 
 io.sockets.on('connection', function (socket) {
   socket.on('messages', function (data) {
-    socket.emit('messages_broadcast', data);
+	console.log('broadcasting ' + data);
+    io.sockets.emit('messages_broadcast', data);
   });
 });

@@ -1,7 +1,7 @@
-<script src="/socket.io/socket.io.js"></script>
+<script src="socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script>
-  var socket = io.connect('localhost:80');
+  var socket = io.connect('tenrally-notifications-server.jit.su:80');
   socket.on('messages_broadcast', function (message) {
     console.log("got" + message);
 	$( "#messages" ).append( "<p>" + message.text + "</p>" );

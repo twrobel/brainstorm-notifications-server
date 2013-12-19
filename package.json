@@ -1,6 +1,6 @@
 {
   "name": "notifications-server",
-  "version": "0.0.0",
+  "version": "0.0.0-4",
   "description": "",
   "main": "app.js",
   "dependencies": {
@@ -9,8 +9,13 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "subdomain": "brainstorm3000-notifications-server",
+  "engines": {
+    "node": "0.10.x"
+  }
 }
